@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # internal apps
     'users',
+    'workouts',
 
     'rest_framework',
     'rest_framework.authtoken',
