@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    name = models.CharField(max_length=100)
     password = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)
     phone_number = models.PositiveIntegerField()
@@ -33,9 +32,9 @@ class Client(models.Model):
     age = models.PositiveIntegerField()
     address = models.CharField(max_length=255)
     
-    assistance_days = models.DateField(auto_now=False, auto_now_add=False)
+    assistance_days = models.DateField(auto_now=False, auto_now_add=False, blank=True, null= True)
     membership_start_date = models.DateField(null=True, blank=True, help_text='Date when the client started their gym membership')
     membership_expiry_date = models.DateField(null=True, blank=True, help_text="Date when the client's membership will expire")
 
     def __str__(self):
-        return f"{self.user.name} Client Profile"
+        return f"{self.user.username} Client Profile"
